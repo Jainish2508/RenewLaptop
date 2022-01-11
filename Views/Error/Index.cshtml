@@ -1,0 +1,30 @@
+﻿@model System.Web.Mvc.HandleErrorInfo
+@{
+    ViewBag.Title = "Error Page";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="error padding_layout_1">
+    <div class="container-floud">
+        <div class="col-xs-12 ground-color text-center">
+            <div class="pt-5">
+                <h3 class="h2">
+                    Look like you're lost
+                </h3>
+            </div>
+            @{
+                char[] status_code = ViewBag.StatusCode.ToCharArray();
+            }
+            <div class="container-error-404">
+                <div class="clip"><div class="shadow"><span class="digit thirdDigit">@status_code[0]</span></div></div>
+                <div class="clip"><div class="shadow"><span class="digit secondDigit">@status_code[1]</span></div></div>
+                <div class="clip"><div class="shadow"><span class="digit firstDigit">@status_code[2]</span></div></div>
+            </div>
+            <h2 class="h1">Sorry! Unable to Process your Request.</h2>
+
+            <a class="btn dark_gray_bt" href="@Url.Action("index","home")">Go to Home</a>
+        </div>
+    </div>
+</div>
+<!-- Error Page -->
+@*<p>Exception: @ViewBag.Exception</p>*@

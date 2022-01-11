@@ -1,0 +1,75 @@
+﻿@model Renew_Laptop.Models.Customer
+@{
+    var pr_info = ViewBag.product_info;
+    string from_date = DateTime.Today.ToShortDateString();
+    string to_date;
+    switch (pr_info.ProductID)
+    {
+        case 1:
+            to_date = DateTime.Today.AddDays(30).ToShortDateString();
+            break;
+        case 2:
+            to_date = DateTime.Today.AddDays(30).ToShortDateString() + " or 1-Time within given duration";
+            break;
+        case 3:
+            to_date = DateTime.Today.AddYears(1).ToShortDateString();
+            break;
+        default:
+            to_date = DateTime.Today.AddDays(30).ToShortDateString();
+            break;
+    }
+}
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+var options = {
+    "key": "rzp_live_er0PYOxiFK91t3", // Enter the Key ID generated from the Dashboard
+    "amount": "@pr_info.UnitPrice*100", // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
+    "currency": "INR",
+    "name": "@pr_info.ProductName",
+    "description": "Valid from @from_date to @to_date",
+    "image": "https://renew-laptop.com/Content/images/logos/logo.png", // You can give your logo url
+    "order_id": "@TempData["OrderID"]",
+    "callback_url": "https://eneqd3r9zrjok.x.pipedream.net/",
+    "handler": function (response){
+        // After payment successfully made response will come here
+        // Set the data in hidden form
+        document.getElementById('rzp_paymentid').value = response.razorpay_payment_id;
+        document.getElementById('rzp_orderid').value = response.razorpay_order_id;
+
+        // // Let's submit the form automatically
+        document.getElementById('rzp-paymentresponse').click();
+    },
+    "prefill": {
+        "name": "@Html.DisplayFor(model => model.FirstName)",
+        "email": "@Html.DisplayTextFor(model => model.Email)",
+        "contact": "@Html.DisplayFor(model => model.Phone)"
+    },
+    "notes": {
+        "address": "@Html.DisplayFor(model => model.AddressLine1)"
+    },
+    "theme": {
+        "color": "#F37254"
+    }
+};
+var rzp1 = new Razorpay(options);
+
+//<!-- onload function -->
+window.onload = function(){
+    rzp1.open();
+    e.preventDefault();
+};
+
+//document.getElementById('rzp-button1').onclick = function(e){
+//    rzp1.open();
+//    e.preventDefault();
+//}
+</script>
+@using (Html.BeginForm("complete", "pricing"))
+{
+    @Html.AntiForgeryToken()
+
+    @Html.Hidden("rzp_paymentid")
+    @Html.Hidden("rzp_orderid")
+
+    <button type="submit" id="rzp-paymentresponse" class="btn btn-primary" hidden>Submit</button>
+}

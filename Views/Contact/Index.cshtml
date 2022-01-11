@@ -1,0 +1,110 @@
+﻿@model Renew_Laptop.Models.ContactViewModel
+@{
+    ViewBag.Title = "Contact Us";
+    ViewBag.Description = "";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- inner page banner -->
+<div id="inner_banner" class="section inner_banner_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                    <div class="title-holder">
+                        <div class="title-holder-cell text-left">
+                            <h1 class="page-title">Contact</h1>
+                            <ol class="breadcrumb">
+                                <li><a href="@Url.Action("index","home")">Home</a></li>
+                                <li class="active">Contact</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end inner page banner -->
+<div class="section padding_layout_1">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-2 col-lg-2 col-md-12 col-sm-12 col-xs-12"></div>
+            <div class="col-xl-9 col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                <div class="row">
+                    <div class="full">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 adress_cont margin_bottom_30">
+                            <h4>Address</h4>
+                            <div class="information_bottom left-side margin_bottom_20_all">
+                                <div class="icon_bottom"> <i class="fa fa-road" aria-hidden="true"></i> </div>
+                                <div class="info_cont">
+                                    <h4>Office Location:</h4>
+                                    <p>
+                                        Shop No. 3 FF, Devpriya Complex,<br />
+                                        Opp. Natraj Medical, Nr. Sima Hall,<br />
+                                        Satellite, AHmedabad-380015
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="information_bottom left-side margin_bottom_20_all">
+                                <div class="icon_bottom"> <i class="fa fa-user" aria-hidden="true"></i> </div>
+                                <div class="info_cont">
+                                    <h4>Oppening Hours:</h4>
+                                    <p>Mon-Sun 10:00am-8:30pm</p>
+                                </div>
+                            </div>
+                            <div class="information_bottom left-side">
+                                <div class="icon_bottom"> <i class="fa fa-envelope" aria-hidden="true"></i> </div>
+                                <div class="info_cont">
+                                    <h4>Online Support:</h4>
+                                    <p><a href="mailto:pratik@renew-laptop.com">pratik@renew-laptop.com</a></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 contant_form">
+                            <h4>GET IN TOUCH</h4>
+                            <p>Our goal is to provide the best customer service and to answer all of your questions in a timely manner.</p>
+                            <div class="form_section">
+                                @using (Html.BeginForm("", "", FormMethod.Post, new { @class = "form_contact", @id = "contact_form" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                @Html.TextBoxFor(c => c.name, new { @class = "field_custom", @placeholder = "Your Name", @id = "name" })
+                                            </div>
+                                            <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                @Html.TextBoxFor(c => c.subject, new { @class = "field_custom", @placeholder = "Subject of contacting us", @id = "subject" })
+                                            </div>
+                                            <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                @Html.TextBoxFor(c => c.email, new { @class = "field_custom", @placeholder = "Your Email", @id = "email" })
+                                                @Html.ValidationMessageFor(c => c.email, "")
+                                            </div>
+                                            <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                @Html.TextBoxFor(c => c.phone, new { @class = "field_custom", @placeholder = "Your Phone", @id = "phone" })
+                                                @Html.ValidationMessageFor(c => c.phone, "")
+                                            </div>
+                                            <div class="field col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                @Html.TextAreaFor(c => c.message, new { @class = "field_custom", @placeholder = "Your Message", @id = "message" })
+                                            </div>
+                                            <div class="field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6Le0V-IZAAAAAEp_eBqZw9Ig-ObSpj2mfre4ZGZy"></div>
+                                            </div>
+                                            <div class="center pt-20">
+                                                <button class="btn main_bt" type="submit" id="submitbtn" style="display:inline-block">SUBMIT NOW</button>
+                                            </div>
+                                            <div id="msgSubmit" class="h3 center hidden"></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                    </fieldset>
+                                    <div id="process-loader"></div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src='https://www.google.com/recaptcha/api.js'></script>

@@ -1,0 +1,697 @@
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ ARES SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+
+/* BULLETS */
+
+/* TABS */
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 960px) {
+
+}
+@media only screen and (max-width: 768px) {
+
+}
+
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ CUSTOM SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/* ARROWS */
+.custom.tparrows {
+	cursor:pointer;
+	background:#000;
+	background:rgba(0,0,0,0.5);
+	width:40px;
+	height:40px;
+	position:absolute;
+	display:block;
+	z-index:100;
+}
+.custom.tparrows:hover {
+	background:#000;
+}
+.custom.tparrows:before {
+	font-family: "revicons";
+	font-size:15px;
+	color:#fff;
+	display:block;
+	line-height: 40px;
+	text-align: center;
+}
+.custom.tparrows.tp-leftarrow:before {
+	content: "\e824";
+}
+.custom.tparrows.tp-rightarrow:before {
+	content: "\e825";
+}
+
+
+
+/* BULLETS */
+.custom.tp-bullets {
+}
+.custom.tp-bullets:before {
+	content:" ";
+	position:absolute;
+	width:100%;
+	height:100%;
+	background:transparent;
+	padding:10px;
+	margin-left:-10px;margin-top:-10px;
+	box-sizing:content-box;
+}
+.custom .tp-bullet {
+	width:12px;
+	height:12px;
+	position:absolute;
+	background:#aaa;
+    background:rgba(125,125,125,0.5);
+	cursor: pointer;
+	box-sizing:content-box;
+}
+.custom .tp-bullet:hover,
+.custom .tp-bullet.selected {
+	background:rgb(125,125,125);
+}
+.custom .tp-bullet-image {
+}
+.custom .tp-bullet-title {
+}
+
+
+/* THUMBS */
+
+
+/* TABS */
+
+
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ DIONE SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/* ARROWS */
+
+
+
+/* BULLETS */
+
+
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ ERINYEN SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/* ARROWS */
+
+/* BULLETS */
+
+
+/* THUMBS */
+
+
+/* TABS */
+      
+
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ GYGES SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/* ARROWS */
+
+
+/* BULLETS */
+	
+
+/* THUMBS */
+
+
+/* TABS */
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 960px) {
+
+}
+@media only screen and (max-width: 768px) {
+
+}
+
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ HADES SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/* ARROWS */
+
+
+/* BULLETS */
+
+
+/* THUMBS */
+
+
+/* TABS */
+
+              
+
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ HEBE SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/* ARROWS */
+
+/* BULLETS */
+
+
+/* TABS */
+
+
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ HEPHAISTOS SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/* ARROWS */
+
+
+
+/* BULLETS */
+
+
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ HERMES SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/* ARROWS */
+
+
+/* BULLETS */
+
+
+/* TABS */
+
+/* MEDIA QUERIES */
+
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ HESPERIDEN SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/* ARROWS */
+
+/* BULLETS */
+
+
+/* THUMBS */
+
+/* TABS */
+
+/* MEDIA QUERIES */
+@media only screen and (max-width: 960px) {
+
+}
+@media only screen and (max-width: 768px) {
+
+}
+
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ METIS SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/* ARROWS */
+.metis.tparrows {
+  background:#fff;
+  padding:10px;
+  transition:all 0.3s;
+  -webkit-transition:all 0.3s;
+  width:60px;
+  height:60px;
+  box-sizing:border-box;
+ }
+ 
+ .metis.tparrows:hover {
+   background:#fff;
+   background:rgba(255,255,255,0.75);
+ }
+ 
+ .metis.tparrows:before {
+  color:#000;  
+   transition:all 0.3s;
+  -webkit-transition:all 0.3s;
+ }
+ 
+ .metis.tparrows:hover:before {
+   transform:scale(1.5);
+  }
+ 
+
+/* BULLETS */
+.metis .tp-bullet { 
+    opacity:1;
+    width:50px;
+    height:50px;    
+    padding:3px;
+    background:#000;
+    background-color:rgba(0,0,0,0.25);
+    margin:0px;
+    box-sizing:border-box;
+    transition:all 0.3s;
+    -webkit-transition:all 0.3s;
+    border-radius:50%;
+  }
+
+.metis .tp-bullet-image {
+
+   border-radius:50%;
+   display:block;
+   box-sizing:border-box;
+   position:relative;
+    -webkit-box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,0.25);
+  -moz-box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,0.25);
+  box-shadow: inset 5px 5px 10px 0px rgba(0,0,0,0.25);
+  width:44px;
+  height:44px;
+  background-size:cover;
+  background-position:center center;
+ }  
+.metis .tp-bullet-title { 
+     position:absolute; 
+	 bottom:65px;
+     display:inline-block;
+     left:50%;
+     background:#000;
+     background:rgba(0,0,0,0.75);
+     color:#fff;
+     padding:10px 30px;
+     border-radius:4px;
+	 -webkit-border-radius:4px;
+     opacity:0;
+      transition:all 0.3s;
+    -webkit-transition:all 0.3s;
+    transform: translateZ(0.001px) translateX(-50%) translateY(14px);
+    transform-origin:50% 100%;
+    -webkit-transform: translateZ(0.001px) translateX(-50%) translateY(14px);
+    -webkit-transform-origin:50% 100%;
+    opacity:0;
+    white-space:nowrap;
+ }
+
+.metis .tp-bullet:hover .tp-bullet-title {
+  	 transform:rotateX(0deg) translateX(-50%);
+    -webkit-transform:rotateX(0deg) translateX(-50%);
+    opacity:1;
+}
+
+.metis .tp-bullet.selected,
+.metis .tp-bullet:hover  {
+  
+   background: rgba(255,255,255,1);
+  background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
+  background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(119,119,119,1)));
+  background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
+  background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
+  background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
+  background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(119,119,119,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr="#ffffff", endColorstr="#777777", GradientType=0 );
+ 
+      }
+.metis .tp-bullet-title:after {
+        content:" ";
+        position:absolute;
+        left:50%;
+        margin-left:-8px;
+        width: 0;
+		height: 0;
+		border-style: solid;
+		border-width: 8px 8px 0 8px;
+		border-color: rgba(0,0,0,0.75) transparent transparent transparent;
+        bottom:-8px;
+   }
+    .metis .tp-tab-mask {
+        padding-left: 20px;
+        left: 0px;
+        max-width: 90px !important;
+        transition: 0.4s padding-left, 0.4s left, 0.4s max-width;
+    }
+    .metis:hover .tp-tab-mask {
+        padding-left: 0px;
+        left: 50px;
+        max-width: 500px !important;
+    }
+    .metis .tp-tab {
+        opacity: 0.15;
+        transition: 0.4s all;
+    }
+    .metis .tp-tab:hover,
+    .metis .tp-tab.selected {
+        opacity: 1;
+    }
+    .metis.tp-tabs {
+        max-width: 118px !important;
+        padding-left: 50px;
+    }
+    .metis.tp-tabs:before {
+        content: " ";
+        height: 100%;
+        width: 88px;
+        background: rgba(0, 0, 0, 0.15);
+        border-right: 1px solid rgba(255, 255, 255, 0.10);
+        left: 0px;
+        top: 0px;
+        position: absolute;
+        transition: 0.4s all;
+    }
+    .metis.tp-tabs:hover:before {
+        width: 118px;
+    }
+    @media (max-width: 499px) {
+        .metis.tp-tabs:before {
+            background: rgba(0, 0, 0, 0.75);
+        }
+    }
+
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ PERSEPHONE SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/* ARROWS */
+
+
+
+/* BULLETS */
+
+
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ URANUS SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/* ARROWS */
+
+/* BULLETS */
+
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ ZEUS SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/
+/* ARROWS */
+.zeus.tparrows {
+  cursor:pointer;
+  min-width:70px;
+  min-height:70px;
+  position:absolute;
+  display:block;
+  z-index:100;
+  border-radius:35px;   
+  overflow:hidden;
+  background:rgba(0,0,0,0.10);
+}
+
+.zeus.tparrows:before {
+  font-family: "revicons";
+  font-size:20px;
+  color:#fff;
+  display:block;
+  line-height: 70px;
+  text-align: center;    
+  z-index:2;
+  position:relative;
+}
+.zeus.tparrows.tp-leftarrow:before {
+  content: "\e824";
+}
+.zeus.tparrows.tp-rightarrow:before {
+  content: "\e825";
+}
+
+.zeus .tp-title-wrap {
+  background:#000;
+  background:rgba(0,0,0,0.5);
+  width:100%;
+  height:100%;
+  top:0px;
+  left:0px;
+  position:absolute;
+  opacity:0;
+  transform:scale(0);
+  -webkit-transform:scale(0);
+   transition: all 0.3s;
+  -webkit-transition:all 0.3s;
+  -moz-transition:all 0.3s;
+   border-radius:50%;
+ }
+.zeus .tp-arr-imgholder {
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0px;
+  left:0px;
+  background-position:center center;
+  background-size:cover;
+  border-radius:50%;
+  transform:translateX(-100%);
+  -webkit-transform:translateX(-100%);
+   transition: all 0.3s;
+  -webkit-transition:all 0.3s;
+  -moz-transition:all 0.3s;
+
+ }
+.zeus.tp-rightarrow .tp-arr-imgholder {
+    transform:translateX(100%);
+  -webkit-transform:translateX(100%);
+      }
+.zeus.tparrows:hover .tp-arr-imgholder {
+  transform:translateX(0);
+  -webkit-transform:translateX(0);
+  opacity:1;
+}
+      
+.zeus.tparrows:hover .tp-title-wrap {
+  transform:scale(1);
+  -webkit-transform:scale(1);
+  opacity:1;
+}
+ 
+
+/* BULLETS */
+.zeus .tp-bullet {
+     box-sizing:content-box; -webkit-box-sizing:content-box; border-radius:50%;
+      background-color: rgba(0, 0, 0, 0);
+      -webkit-transition: opacity 0.3s ease;
+      transition: opacity 0.3s ease;
+	  width:13px;height:13px;
+	  border:2px solid #fff;
+ }
+.zeus .tp-bullet:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  border-radius: 50%;
+  background-color: #FFF;
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  -webkit-transform-origin: 50% 50%;
+  transform-origin: 50% 50%;
+  -webkit-transition: -webkit-transform 0.3s ease;
+  transition: transform 0.3s ease;
+}
+.zeus .tp-bullet:hover:after,
+.zeus .tp-bullet.selected:after{
+    -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+}
+  
+ .zeus .tp-bullet-image{
+        width:135px;
+        height:60px;
+        position:absolute;
+        background:#000;
+        background:rgba(0,0,0,0.5);
+        bottom:25px;
+        left:50%;
+        margin-left:-65px;
+        box-sizing:border-box;
+        background-size:cover;
+        background-position:center center;
+        visibility:hidden;
+        opacity:0;
+         -webkit-backface-visibility: hidden; 
+      	backface-visibility: hidden;
+        -webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+  		-webkit-transition: all 0.3s ease;
+  		transition: all 0.3s ease;
+        border-radius:4px;
+
+}
+          
+
+.zeus .tp-bullet-title {
+        z-index:2;
+        -webkit-transition: all 0.5s ease;
+	  	transition: all 0.5s ease;
+}     
+.zeus .tp-bullet-title { 
+        color:#fff;
+        text-align:center;
+        line-height:15px;
+        font-size:13px;
+        font-weight:600;  
+        z-index:3;
+         visibility:hidden;
+        opacity:0;
+         -webkit-backface-visibility: hidden; 
+      	backface-visibility: hidden;
+        -webkit-transform-origin: 50% 50%;
+		transform-origin: 50% 50%;
+  		-webkit-transition: all 0.3s ease;
+  		transition: all 0.3s ease;
+        position:absolute;
+        bottom:45px;
+        width:135px;
+    	vertical-align:middle;
+        left:-57px;
+}
+      
+.zeus .tp-bullet:hover .tp-bullet-title,
+.zeus .tp-bullet:hover .tp-bullet-image{
+      opacity:1;
+      visibility:visible;
+	  -webkit-transform:translateY(0px);
+      transform:translateY(0px);         
+    }
+
+/* THUMBS */
+.zeus .tp-thumb {
+opacity:1
+}
+
+.zeus .tp-thumb-title {
+  font-family:"Raleway";
+  letter-spacing:1px;
+  font-size:12px;
+  color:#fff;
+  display:block;
+  line-height: 15px;
+  text-align: left;    
+  z-index:2;
+  position:absolute;
+  top:0px;
+  left:0px;
+  z-index:2;
+  padding:20px 35px 20px 20px;
+  width:100%;
+  height:100%;
+  box-sizing:border-box;
+  transition:all 0.3s;
+  -webkit-transition:all 0.3s;
+  font-weight:500;
+}
+.zeus .tp-thumb.selected .tp-thumb-title,
+.zeus .tp-thumb:hover .tp-thumb-title {
+  color:#fff;
+
+}
+
+
+/* TABS */
+.zeus .tp-tab { 
+  opacity:1;      
+  box-sizing:border-box;
+}
+
+
+
+/*-----------------------------------------------------------------------------
+
+- Revolution Slider 5.0 Navigatin Skin Style  -
+
+ ZEUS SKIN
+
+author:  ThemePunch
+email:      info@themepunch.com
+website:    http://www.themepunch.com
+-----------------------------------------------------------------------------*/

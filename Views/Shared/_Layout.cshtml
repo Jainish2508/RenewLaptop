@@ -1,0 +1,327 @@
+﻿@{
+    Html.RenderPartial("GoogleAnalytics");
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <!-- site metas -->
+    <title>@ViewBag.Title - Renew Laptop</title>
+    <meta name="keywords" content="Computer repairing shop nearby, laptop repairing shop near satellite, cpu repair near satellite, Laptop Repairing satellite, Computer Repairing satellite, motherboard repair service near satellite, computer servicing center near satellite, cpu repair shop near satellite, Computer Repairing in Ahmedabad, Computer Repaire in Ahmedabad, Desktop Repairing, repair computers, laptop motherboard chip level repair, best laptop service center, computer motherboard repairing, computer repairing centre, best laptop repairs near me, computer repairing store near me, repairing computer hardware, repair motherboard, laptops screen repair, pc repairing, motherboard chip level repair">
+    <meta name="description" content="@ViewBag.Description">
+
+    @Styles.Render("~/css/maincss")
+
+    <!--Font link-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap">
+
+    <!-- site icons -->
+    <link rel="icon" href="~/favicon.ico" type="image/x-icon" />
+    <!--[if lt IE 9]>
+          <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+          <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+          <![endif]-->
+    <link rel="preload" href="https://renew-laptop.com/Content/fonts/fontawesome-webfont.woff2?v=4.6.3&display=swap" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="https://renew-laptop.com/Content/revolution/fonts/revicons/revicons.woff?5510888&display=swap" as="font" crossorigin="anonymous" />
+    <link rel="preload" href="https://renew-laptop.com/Content/fonts/fontawesome-webfont.woff2?v=4.6.3&display=swap" as="font" crossorigin="anonymous" />
+
+</head>
+<body id="default_theme" class="it_service">
+    <!-- loader -->
+    <div class="bg_load"> <img class="loader_animation" src="~/Content/images/loaders/loader_1.png" alt="#" /> </div>
+    <!-- end loader -->
+    <!-- header -->
+    <header id="default_header" class="header_style_1">
+        <!-- header top -->
+        <div class="header_top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="full">
+                            <div class="topbar-left">
+                                <ul class="list-inline">
+                                    <li> <span class="topbar-label"><i class="fa fa-home"></i></span> <span class="topbar-hightlight">Shop No. 3 FF, Devpriya Complex, Satellite, Ahmedabad 380015</span> </li>
+                                    <li> <span class="topbar-label"><i class="fa fa-envelope-o"></i></span> <span class="topbar-hightlight"><a href="mailto:pratik@renew-laptop.com">pratik@renew-laptop.com</a></span> </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 right_section_header_top">
+                        <div class="float-left">
+                            <div class="social_icon">
+                                <ul class="list-inline">
+                                    <li><a class="fa fa-facebook" href="https://www.facebook.com/" title="Facebook" target="_blank"></a></li>
+                                    <li><a class="fa fa-google-plus" href="https://plus.google.com/" title="Google+" target="_blank"></a></li>
+                                    <li><a class="fa fa-twitter" href="https://twitter.com" title="Twitter" target="_blank"></a></li>
+                                    <li><a class="fa fa-linkedin" href="https://www.linkedin.com" title="LinkedIn" target="_blank"></a></li>
+                                    <li><a class="fa fa-instagram" href="https://www.instagram.com" title="Instagram" target="_blank"></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="float-right">
+                            <div class="make_appo"> <a class="btn white_btn" href="@Url.Action("checkout","pricing",new { product_id = 1})">Make Appointment</a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end header top -->
+        <!-- header bottom -->
+        <div class="header_bottom header_fixed_on_scroll">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-12 col-sm-12 col-xs-12">
+                        <!-- logo start -->
+                        <div class="logo"> <a href="@Url.Action("index", "home")"><img src="~/Content/images/logos/logo.png" alt="Renew Laptop" /></a> </div>
+                        <!-- logo end -->
+                    </div>
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
+                        @{ string pageUrl = Request.Url.PathAndQuery.ToString().ToLower(); }
+                        <!-- menu start -->
+                        <div class="menu_side">
+                            <div id="navbar_menu">
+                                <ul class="first-ul">
+                                    <li>
+                                        <a class="@(pageUrl.ToLower().EndsWith("/home") || pageUrl.ToLower().EndsWith("/") ? "active" : string.Empty)" href="@Url.Action("index","home")">Home</a>
+                                    </li>
+                                    <li><a class="@(pageUrl.ToLower().EndsWith("/about") ? "active" : string.Empty)" href="@Url.Action("index","about")">About Us</a></li>
+                                    <li>
+                                        <a class="@(pageUrl.ToLower().EndsWith("/services") || pageUrl.ToLower().Contains("/services")  ? "active" : string.Empty)" href="@Url.Action("index","services")">Services</a>
+                                        <ul>
+                                            <li><a href="@Url.Action("computer-repair","services")">Computer Repair</a></li>
+                                            <li><a href="@Url.Action("data-recovery","services")">Data Recovery</a></li>
+                                            <li><a href="@Url.Action("network-solutions","services")">Network Solutions</a></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a class="@(pageUrl.ToLower().EndsWith("/pricing")||pageUrl.ToLower().Contains("/pricing") ? "active" : string.Empty)" href="@Url.Action("index","pricing")">Pricing</a>
+                                    </li>
+                                    <li>
+                                        <a class="@(pageUrl.ToLower().EndsWith("/contact") ? "active" : string.Empty)" href="@Url.Action("index","contact")">Contact Us</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- menu end -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- header bottom end -->
+    </header>
+    <!-- end header -->
+    @RenderBody()
+    <!-- section -->
+    <div class="section padding_layout_1 testmonial_section white_fonts">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="full">
+                        <div class="main_heading text_align_left">
+                            <h2 style="text-transform: none;">What Clients Say?</h2>
+                            <p class="large">Words from our clients..</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-7">
+                    <div class="full">
+                        <div id="testimonial_slider" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ul class="carousel-indicators">
+                                <li data-target="#testimonial_slider" data-slide-to="0" class="active"></li>
+                                <li data-target="#testimonial_slider" data-slide-to="1"></li>
+                                <li data-target="#testimonial_slider" data-slide-to="2"></li>
+                            </ul>
+                            <!-- The slideshow -->
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                    <div class="testimonial-container">
+                                        <div class="testimonial-content">
+                                            The best thing I would like to share about Renew Laptop is they
+                                            understand the value of our system, they understand the issue then only they put
+                                            their hand to fix it to deliver quality service. I am not that techy but I know what
+                                            our system requires. They fixed my Laptop motherboard without harming any
+                                            other part in my Laptop. I personally recommend Renew Laptop service to all.
+                                        </div>
+                                        <div class="testimonial-meta">
+                                            <h4>Praful Patel</h4>
+                                            <span class="testimonial-position">IT Person</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="testimonial-container">
+                                        <div class="testimonial-content">
+                                            I lost my all data due to an issue in my hard-drive. The data
+                                            were highly confidential and extremely important for me, I was helpless. One of
+                                            my friends recommended me to contact Renew Laptop. They helped me to
+                                            recover important data for me. I was surprised to know data-recovery is also
+                                            possible. Thanks to Renew Laptop to save my Job and Life.
+                                        </div>
+                                        <div class="testimonial-meta">
+                                            <h4>Mahesh Savaliya</h4>
+                                            <span class="testimonial-position">System Admin</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-item">
+                                    <div class="testimonial-container">
+                                        <div class="testimonial-content">
+                                            By profession I am a software Engineer I know many things
+                                            about Computer Hardware but my knowledge failed in-front of Renew Laptop
+                                            Experts knowledge. My Laptop has serious issue in the Hard-drive, Bios System
+                                            stopped functioning in the Hard-drive I was afraid what if this doesn’t get fixed? I
+                                            will lose all the data of my 100 Projects. The experts helped me to fix the issue
+                                            within 24 hours and recover my data as well also they recommended to store
+                                            important data on cloud storage. For me it was a 5-star service.
+                                        </div>
+                                        <div class="testimonial-meta">
+                                            <h4>Gondaliya Hiren</h4>
+                                            <span class="testimonial-position">Training Institute</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="full"> </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end section -->
+    <!-- section -->
+    <div class="section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="full">
+                        <div class="contact_us_section">
+                            <div class="call_icon"> <img src="/Content/images/it_service/phone_icon.png" alt="#" /> </div>
+                            <div class="inner_cont">
+                                <h2>REQUEST A FREE QUOTE</h2>
+                                <p>Get answers and advice from people you want it from.</p>
+                            </div>
+                            <div class="button_Section_cont"> <a class="btn dark_gray_bt" href="@Url.Action("index","contact")">Contact us</a> </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end section -->
+    <!-- section -->
+    <div class="section padding_layout_1" style="padding: 50px 0;">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="full">
+                        <div class="main_heading text_align_center">
+                            <h2>We Provide Service on</h2>
+                            <p class="large"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="full">
+                        <ul class="brand_list">
+                            <li><img src="/Content/images/it_service/apple-icon.png" alt="Apple" /></li>
+                            <li><img src="/Content/images/it_service/hp-icon.png" alt="HP" /></li>
+                            <li><img src="/Content/images/it_service/Lenovo-icon.png" alt="Lenovo" /></li>
+                            <li><img src="/Content/images/it_service/Dell-icon.png" alt="Dell" /></li>
+                            <li><img src="/Content/images/it_service/microsoft-surface-icon.png" alt="Surface" /></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="margin-top:20px">
+                <div class="col-md-12">
+                    <div class="full">
+                        <div class="text_align_center">
+                            <h3>and many more..</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end section -->
+    <!-- footer -->
+    <footer class="footer_style_2">
+        <div class="container-fuild">
+            <div class="row">
+                <div class="map_section p-0">
+                    <div id="map">
+                        <iframe style="width:100%;height:605px;border:0;" src="https://maps.google.com/maps?q=Renew%20Laptop,%20Shop%20No.%203%20FF,%20Dev%20Priya%20Complex,%20Opp.%20Natraj%20Medical,%20nr.%20Seema%20Hall,%20Satellite,%20Ahmedabad,%20Gujarat%20380015&t=&z=13&ie=UTF8&iwloc=&output=embed"></iframe>
+                    </div>
+                </div>
+                <div class="footer_blog">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img src="~/Content/images/logos/logo.png" alt="Renew Laptop" class="img-responsive footer_logo mt-4" />
+                        </div>
+                        <div class="col-md-6">
+                            <div class="main-heading left_text">
+                                <h2>Additional links</h2>
+                            </div>
+                            <ul class="footer-menu">
+                                <li><a href="@Url.Action("index", "about")"><i class="fa fa-angle-right"></i> About us</a></li>
+                                <li><a href="@Url.Action("index","terms")"><i class="fa fa-angle-right"></i> Terms and conditions</a></li>
+                                <li><a href="@Url.Action("index","privacy")"><i class="fa fa-angle-right"></i> Privacy policy</a></li>
+                                <li>
+                                    <a href="@Url.Action("index","faqs")"><i class="fa fa-angle-right"></i> FAQs</a>
+                                </li>
+                                <li><a href="@Url.Action("index","contact")"><i class="fa fa-angle-right"></i> Contact us</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="main-heading left_text">
+                                <h2>Services</h2>
+                            </div>
+                            <ul class="footer-menu">
+                                <li><a href="@Url.Action("Computer-repair","services")"><i class="fa fa-angle-right"></i> Computer & Laptop repair</a></li>
+                                <li><a href="@Url.Action("data-recovery","services")"><i class="fa fa-angle-right"></i> Data recovery</a></li>
+                                <li><a href="@Url.Action("network-solutions","services")"><i class="fa fa-angle-right"></i> Network solutions</a></li>
+                                <li><a href="mailto:pratik@renew-laptop.com"><i class="fa fa-angle-right"></i> Technical support</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="main-heading left_text">
+                                <h2>Contact us</h2>
+                            </div>
+                            <ul class="footer-menu">
+                                <li>
+
+                                    <p><i class="fa fa-angle-right"></i> Shop No. 3 FF, Devpriya Complex,<br /> Opp. Natraj Medical, Nr. Sima Hall, <br />Satellite, Ahmedabad-380015</p>
+                                </li>
+                                <li><a href="mailto:pratik@renew-laptop.com"><i class="fa fa-angle-right"></i> pratik@renew-laptop.com</a></li>
+                                <li><a href="tel:+91 99740 97022"><i class="fa fa-angle-right"></i> +91 99740 97022</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="cprt">
+                    <p>Renew Laptop © Copyrights 2020. All Rights Reserved.<br /> Design by Jainish Shah</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- end footer -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/mainjs")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

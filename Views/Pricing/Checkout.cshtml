@@ -1,0 +1,182 @@
+﻿@model Renew_Laptop.Models.Customer
+
+@{
+    ViewBag.Title = "Order Form for Diagnostic Subcription";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var pr_info = ViewBag.product_info;
+}
+
+<!-- inner page banner -->
+<div id="inner_banner" class="section inner_banner_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                    <div class="title-holder">
+                        <div class="title-holder-cell text-left">
+                            <h1 class="page-title">@pr_info.ProductName</h1>
+                            <ol class="breadcrumb">
+                                <li><a href="@Url.Action("index","home")">Home</a></li>
+                                <li><a href="@Url.Action("index","pricing")">Pricing</a></li>
+                                <li class="active">Checkout</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end inner page banner -->
+
+<section id="checkout" class="checkout_page">
+    <div class="section padding_layout_1 checkout_section">
+        <div class="container">
+            <div class="row">
+                <div class="full">
+                    <div class="col-md-12">
+                        <div class="main_heading text_align_center">
+                            <h2>Purchase Form</h2>
+                            <p class="large"></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @using (Html.BeginForm("checkout", "pricing",new { product_id =pr_info.ProductID}, FormMethod.Post, new { @id = "checkoutForm" }))
+            {
+                <div class="row">
+                    <div class="col-md-4 pt-5">
+                        <div class="shopping-cart-cart">
+                            <table>
+                                <tbody>
+                                    <tr class="head-table">
+                                        <td><h3>Item in Cart</h3></td>
+                                        <td class="text-right"></td>
+                                    </tr>
+                                    <tr>
+                                        @{
+                                            string from_date = DateTime.Today.ToShortDateString();
+                                            string to_date;
+                                            switch (pr_info.ProductID)
+                                            {
+                                                case 1:
+                                                    to_date = DateTime.Today.AddDays(30).ToShortDateString();
+                                                    break;
+                                                case 2:
+                                                    to_date = DateTime.Today.AddDays(30).ToShortDateString() + " or 1-Time within given duration";
+                                                    break;
+                                                case 3:
+                                                    to_date = DateTime.Today.AddYears(1).ToShortDateString();
+                                                    break;
+                                                default:
+                                                    to_date = DateTime.Today.AddDays(30).ToShortDateString();
+                                                    break;
+                                            }
+
+                                        }
+                                        <td>
+                                            <h5>@pr_info.ProductName</h5><br /><p>Valid from <b>@from_date</b> to <b>@to_date</b>. </p>
+                                        </td>
+                                        <td class="text-right"><h4>₹@string.Format("{0:n2}", pr_info.UnitPrice)</h4></td>
+                                    </tr>
+                                    <tr>
+                                        <td><h3>Total</h3><h6>(Including all Taxes & Charges.)</h6></td>
+                                        <td class="text-right"><h4>₹@string.Format("{0:n2}", pr_info.UnitPrice)</h4></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="payment-form">
+                            <div class="panel panel-default credit-card-box">
+                                <div class="panel-heading display-table">
+                                    <div class="display-tr">
+                                        <h3 class="panel-title display-td">Payment Details</h3>
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    @Html.AntiForgeryToken()
+                                    <fieldset>
+                                        <div class="row">
+                                            <div class="form-field col-lg-12 col-md-12 col-sm-12 col-xs-12 payment-bt pt-2">
+                                                <p>All fields marked with<span class="asterisk"></span> are required.</p>
+                                            </div>
+                                            <div class="form-field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                @Html.LabelFor(o => o.FirstName)<span class="asterisk"></span>
+                                                @Html.TextBoxFor(o => o.FirstName, new { @class = "form-field field_custom", @id = "fname", @placeholder = "Your Name" })
+                                                @Html.ValidationMessageFor(o => o.FirstName, "")
+                                            </div>
+                                            <div class="form-field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                @Html.LabelFor(o => o.LastName)<span class="asterisk"></span>
+                                                @Html.TextBoxFor(o => o.LastName, new { @class = "form-field field_custom", @id = "lname", @placeholder = "Family Name" })
+                                                @Html.ValidationMessageFor(o => o.LastName, "", new { @class = "" })
+                                            </div>
+                                            <div class="form-field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                @Html.LabelFor(o => o.Email)<span class="asterisk"></span>
+                                                @Html.TextBoxFor(o => o.Email, new { @class = "form-field field_custom", @id = "email", @placeholder = "john@example.com" })
+                                                @Html.ValidationMessageFor(o => o.Email, "")
+                                            </div>
+                                            <div class="form-field col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                @Html.LabelFor(o => o.Phone)<span class="asterisk"></span>
+                                                @Html.TextBoxFor(o => o.Phone, new { @class = "form-field field_custom", @id = "phone", @placeholder = "9974097022" })
+                                                @Html.ValidationMessageFor(o => o.Phone, "")
+                                            </div>
+                                            <div class="form-field col-lg-6 col-md-6 col-sm-12 col-xs-12 pt-2">
+                                                @Html.LabelFor(o => o.CompanyName)
+                                                @Html.TextBoxFor(o => o.CompanyName, new { @class = "form-field field_custom", @id = "company", @placeholder = "Your company/business name would be great" })
+                                            </div>
+                                            <div class="form-field col-lg-6 col-md-6 col-sm-12 col-xs-12 pt-2">
+                                                @Html.LabelFor(o => o.GSTIN)
+                                                @Html.TextBoxFor(o => o.GSTIN, new { @class = "form-field field_custom", @id = "gst", @placeholder = "If you are a registered business" })
+                                                @Html.ValidationMessageFor(o => o.GSTIN, "")
+                                            </div>
+                                            <div class="form-field col-lg-12 col-md-12 col-sm-12 col-xs-12 pt-2">
+                                                @Html.LabelFor(o => o.AddressLine1)<span class="asterisk"></span>
+                                                @Html.TextBoxFor(o => o.AddressLine1, new { @class = "form-field field_custom", @id = "addressline1", @placeholder = "Running out of space, feel free to use address line 2" })
+                                                @Html.ValidationMessageFor(o => o.AddressLine1, "")
+                                                <p style="text-align:right">Max. 100 Chars</p>
+                                            </div>
+                                            <div class="form-field col-lg-6 col-md-6 col-sm-12 col-xs-12 pt-4">
+                                                @Html.LabelFor(o => o.AddressLine2)
+                                                @Html.TextBoxFor(o => o.AddressLine2, new { @class = "form-field field_custom", @id = "addressline2", @placeholder = "Remain address goes here" })
+                                                @Html.ValidationMessageFor(o => o.AddressLine2, "")
+                                            </div>
+                                            <div class="form-field col-lg-6 col-md-6 col-sm-12 col-xs-12 pt-2">
+                                                @Html.LabelFor(o => o.City)<span class="asterisk"></span>
+                                                @Html.TextBoxFor(o => o.City, new { @class = "form-field field_custom", @id = "city", @placeholder = "In wich city you are?" })
+                                                @Html.ValidationMessageFor(o => o.City, "")
+                                            </div>
+                                            <div class="form-field col-lg-6 col-md-6 col-sm-12 col-xs-12 pt-2">
+                                                @Html.LabelFor(o => o.State)<span class="asterisk"></span>
+                                                @Html.TextBoxFor(o => o.State, new { @class = "form-field field_custom", @id = "state", @placeholder = "Where are you from?" })
+                                                @Html.ValidationMessageFor(o => o.State, "")
+                                            </div>
+                                            <div class="form-field col-lg-6 col-md-6 col-sm-12 col-xs-12 pt-2">
+                                                @Html.LabelFor(o => o.PostalCode)<span class="asterisk"></span>
+                                                @Html.TextBoxFor(o => o.PostalCode, new { @class = "form-field field_custom", @id = "postalcode", @placeholder = "380001" })
+                                                @Html.ValidationMessageFor(o => o.PostalCode, "")
+                                            </div>
+                                            <div class="form-field col-lg-12 col-md-12 col-sm-12 col-xs-12 pt-2">
+                                                <div class="g-recaptcha" data-callback="recaptchaCallback" data-sitekey="6Le0V-IZAAAAAEp_eBqZw9Ig-ObSpj2mfre4ZGZy"></div>
+                                            </div>
+                                            <div id="msgSubmit" class="h3 center hidden"></div>
+                                            <div class="clearfix"></div>
+                                            <div class="form-field col-lg-12 col-md-12 col-sm-12 col-xs-12 payment-bt pt-2">
+                                                <div class="center">
+                                                    <button type="submit" class="bt_main">Start Subscription</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="process-loader"></div>
+            }
+        </div>
+    </div>
+</section>
+<script src='https://www.google.com/recaptcha/api.js'></script>

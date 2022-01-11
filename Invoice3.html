@@ -1,0 +1,446 @@
+﻿<!DOCTYPE html>
+<html style="box-sizing: border-box;font-family: sans-serif;line-height: 1.15;-webkit-text-size-adjust: 100%;-ms-text-size-adjust: 100%;-ms-overflow-style: scrollbar;-webkit-tap-highlight-color: transparent;">
+<head style="box-sizing: border-box;">
+    <meta charset="utf-8" style="box-sizing: border-box;">
+    <title style="box-sizing: border-box;"></title>
+    <link rel="stylesheet" href="https://renew-laptop.com/Content/css/bootstrap.min.css" style="box-sizing: border-box;">
+    <style style="box-sizing: border-box;">
+        @page {
+            bleed: 1cm;
+            size: A4 portrait;
+            size: auto; /* auto is the initial value */
+            margin-bottom: 50pt;
+            margin-top: 0cm;
+            font-size: 12pt;
+            #content, #page
+
+        {
+            width: 100%;
+            margin: 0;
+            float: none;
+        }
+
+        }
+
+
+        @media print {
+            .page {
+                border: initial;
+                border-radius: initial;
+                width: initial;
+                min-height: initial;
+                box-shadow: initial;
+                background: initial;
+                page-break-after: always;
+            }
+
+            table {
+                page-break-inside: auto;
+            }
+
+            tr.last-row {
+                background-color: #555 !important;
+            }
+
+                tr.last-row > th, tr.last-row > td {
+                    background-color: unset !important;
+                }
+
+            div.page-break {
+                page-break-before: auto;
+            }
+        }
+
+        .gray {
+            color: #333;
+        }
+
+        .gray-ish {
+            color: #666;
+        }
+
+        .almost-gray {
+            color: #999;
+        }
+
+        body {
+            background-color: #eee;
+            padding-top: 25px;
+            -webkit-print-color-adjust: exact !important;
+            height: 100%;
+            margin-top: 40px;
+        }
+
+        div.container {
+            background-color: white;
+            border-radius: 10px;
+            height: 100%;
+            position: relative;
+            margin-top: 50px;
+        }
+
+        div.invoice-header {
+            background-color: #444;
+            color: white;
+            border-bottom: 3px solid rgb(255, 77, 77);
+        }
+
+            div.invoice-header > div > p {
+                font-size: 1.2rem;
+                font-weight: 350;
+            }
+
+            div.invoice-header > div > h1 {
+                font-size: 4rem;
+            }
+
+        div.invoice-table {
+            border-top: 3px solid rgb(255, 77, 77);
+        }
+
+            div.invoice-table > table.table > thead, div.invoice-table > table.table > thead.thead > tr, div.invoice-table > table.table > thead.thead > tr > th {
+                border-top: none;
+            }
+
+        div.total-field {
+            position: relative;
+        }
+
+        h5.due-date {
+            position: absolute;
+            bottom: 10px;
+            right: 15px;
+        }
+
+        div.sub-table {
+            border-left: 3px solid rgb(255, 77, 77);
+            padding-left: 0;
+        }
+
+            div.sub-table > table {
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+
+        tr.last-row {
+            margin-top: 25px;
+            background-color: #555;
+            color: white;
+            border-top: 3px solid rgb(255, 77, 77);
+        }
+
+        p.footer {
+            bottom: 0;
+            width: 100%;
+            background-color: #333;
+            color: white;
+            padding-top: 15px;
+            border-top: 3px solid red;
+        }
+    </style>
+</head>
+<body style="box-sizing: border-box;margin: 0;font-family: -apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,&quot;Helvetica Neue&quot;,Arial,sans-serif,&quot;Apple Color Emoji&quot;,&quot;Segoe UI Emoji&quot;,&quot;Segoe UI Symbol&quot;;font-size: 1rem;font-weight: 400;line-height: 1.5;color: #212529;text-align: left;background-color: #eee;padding-top: 25px;height: 100%;margin-top: 40px;min-width: 992px!important;-webkit-print-color-adjust: exact !important;">
+    <div class="container" style="box-sizing: border-box;width: 100%;padding-right: 15px;padding-left: 15px;margin-right: auto;margin-left: auto;background-color: white;border-radius: 10px;height: 100%;position: relative;margin-top: 50px;min-width: 992px!important;">
+        <div class="row invoice-header px-3 py-2" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: -15px;margin-left: -15px;background-color: #444;color: white;border-bottom: 3px solid rgb(255, 77, 77);padding-top: .5rem!important;padding-bottom: .5rem!important;padding-right: 1rem!important;padding-left: 1rem!important;">
+            <div class="col-4" style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-webkit-box-flex: 0;-ms-flex: 0 0 33.333333%;flex: 0 0 33.333333%;max-width: 33.333333%;">
+                <p style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;orphans: 3;widows: 3;font-size: 1.2rem;font-weight: 350;">Company Name</p>
+                <h1 style="box-sizing: border-box;margin-top: 0;margin-bottom: .5rem;font-family: inherit;font-weight: 500;line-height: 1.2;color: inherit;font-size: 4rem;">INVOICE</h1>
+            </div>
+            <div class="col-4 text-right" style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-webkit-box-flex: 0;-ms-flex: 0 0 33.333333%;flex: 0 0 33.333333%;max-width: 33.333333%;text-align: right!important;">
+                <p style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;orphans: 3;widows: 3;font-size: 1.2rem;font-weight: 350;">(011)-123-1243</p>
+                <p style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;orphans: 3;widows: 3;font-size: 1.2rem;font-weight: 350;">email@adress.com</p>
+                <p style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;orphans: 3;widows: 3;font-size: 1.2rem;font-weight: 350;">personal-website.com</p>
+            </div>
+            <div class="col-4 text-right" style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-webkit-box-flex: 0;-ms-flex: 0 0 33.333333%;flex: 0 0 33.333333%;max-width: 33.333333%;text-align: right!important;">
+                <p style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;orphans: 3;widows: 3;font-size: 1.2rem;font-weight: 350;">Street Adress</p>
+                <p style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;orphans: 3;widows: 3;font-size: 1.2rem;font-weight: 350;">City, State Adress, ZIP</p>
+                <p style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;orphans: 3;widows: 3;font-size: 1.2rem;font-weight: 350;">VAT ID / PID</p>
+            </div>
+        </div>
+
+        <div class="invoice-content row px-5 pt-5" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: -15px;margin-left: -15px;padding-top: 3rem!important;padding-right: 3rem!important;padding-left: 3rem!important;">
+            <div class="col-3" style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-webkit-box-flex: 0;-ms-flex: 0 0 25%;flex: 0 0 25%;max-width: 25%;">
+                <h5 class="almost-gray mb-3" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem!important;font-family: inherit;font-weight: 500;line-height: 1.2;color: #999;font-size: 1.25rem;">Invoiced to:</h5>
+                <p class="gray-ish" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;orphans: 3;widows: 3;color: #666;">Client Name</p>
+                <p class="gray-ish" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;orphans: 3;widows: 3;color: #666;">Client Adress spanning on two rows hopefully.</p>
+                <p class="gray-ish" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;orphans: 3;widows: 3;color: #666;">VAT ID: 12091803</p>
+            </div>
+            <div class="col-3" style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-webkit-box-flex: 0;-ms-flex: 0 0 25%;flex: 0 0 25%;max-width: 25%;">
+                <h5 class="almost-gray" style="box-sizing: border-box;margin-top: 0;margin-bottom: .5rem;font-family: inherit;font-weight: 500;line-height: 1.2;color: #999;font-size: 1.25rem;">Invoice number:</h5>
+                <p class="gray-ish" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;orphans: 3;widows: 3;color: #666;"># 123456789</p>
+
+                <h5 class="almost-gray" style="box-sizing: border-box;margin-top: 0;margin-bottom: .5rem;font-family: inherit;font-weight: 500;line-height: 1.2;color: #999;font-size: 1.25rem;">Date of Issue:</h5>
+                <p class="gray-ish" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;orphans: 3;widows: 3;color: #666;">01 / 01 / 20 20 </p>
+
+            </div>
+            <div class="col-6 text-right total-field" style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-webkit-box-flex: 0;-ms-flex: 0 0 50%;flex: 0 0 50%;max-width: 50%;text-align: right!important;">
+                <h4 class="almost-gray" style="box-sizing: border-box;margin-top: 0;margin-bottom: .5rem;font-family: inherit;font-weight: 500;line-height: 1.2;color: #999;font-size: 1.5rem;">Invoice Total</h4>
+                <h1 class="gray-ish" style="box-sizing: border-box;margin-top: 0;margin-bottom: .5rem;font-family: inherit;font-weight: 500;line-height: 1.2;color: #666;font-size: 2.5rem;">634,57 <span class="curency" style="box-sizing: border-box;">&euro;</span></h1>
+                <h5 class="almost-gray due-date" style="box-sizing: border-box;margin-top: 0;margin-bottom: .5rem;font-family: inherit;font-weight: 500;line-height: 1.2;color: #999;font-size: 1.25rem;position: absolute;bottom: 10px;right: 15px;">Due Date: 01 / 01 / 20 20</h5>
+            </div>
+        </div>
+
+        <div class="row mt-5" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: -15px;margin-left: -15px;margin-top: 3rem!important;">
+            <div class="col-10 offset-1 invoice-table pt-1" style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-webkit-box-flex: 0;-ms-flex: 0 0 83.333333%;flex: 0 0 83.333333%;max-width: 83.333333%;margin-left: 8.333333%;border-top: 3px solid rgb(255, 77, 77);padding-top: .25rem!important;">
+                <table class="table table-hover" style="box-sizing: border-box;border-collapse: collapse!important;page-break-inside: auto;width: 100%;max-width: 100%;margin-bottom: 1rem;background-color: transparent;">
+                    <thead class="thead splitForPrint" style="box-sizing: border-box;display: table-header-group;border-top: none;">
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;border-top: none;">
+                            <th scope="col gray-ish" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: bottom;border-top: none;border-bottom: 2px solid #dee2e6;background-color: #fff!important;">NO.</th>
+                            <th scope="col gray-ish" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: bottom;border-top: none;border-bottom: 2px solid #dee2e6;background-color: #fff!important;">Item</th>
+                            <th scope="col gray-ish" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: bottom;border-top: none;border-bottom: 2px solid #dee2e6;background-color: #fff!important;">Qty.</th>
+                            <th scope="col gray-ish" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: bottom;border-top: none;border-bottom: 2px solid #dee2e6;background-color: #fff!important;">U. Price</th>
+                            <th scope="col gray-ish" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: bottom;border-top: none;border-bottom: 2px solid #dee2e6;background-color: #fff!important;">VAT %</th>
+                            <th scope="col gray-ish" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: bottom;border-top: none;border-bottom: 2px solid #dee2e6;background-color: #fff!important;">Discount</th>
+                            <th class="text-right" scope="col gray-ish" style="box-sizing: border-box;text-align: right!important;padding: .75rem;vertical-align: bottom;border-top: none;border-bottom: 2px solid #dee2e6;background-color: #fff!important;">Amount</th>
+                        </tr>
+                    </thead>
+                    <tbody style="box-sizing: border-box;">
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span></td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span></td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">2</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 2</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;"></td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">3</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 3</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">4</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 4</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span></td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span></td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 5</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;"></td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">6</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 6</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">7</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 7</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span></td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span></td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">8</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 8</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;"></td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">9</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 9</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">10</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 10</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">11</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 11</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">12</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 12</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 13</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">14</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 13</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">15</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 15</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">16</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 16</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">17</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 17</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">18</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 18</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">19</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 19</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">20</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 20</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">21</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 21</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">22</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 22</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">23</th>
+                            <td class="item" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Item 23</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">1</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">25 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">13 %</td>
+                            <td style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">5  %</td>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">28,75 <span class="currency" style="box-sizing: border-box;">&euro;</span> </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row invoice_details" style="box-sizing: border-box;display: flex;-ms-flex-wrap: wrap;flex-wrap: wrap;margin-right: -15px;margin-left: -15px;">
+            <!-- invoiced to details -->
+            <div class="col-4 offset-1 pt-3" style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 15px;padding-left: 15px;-webkit-box-flex: 0;-ms-flex: 0 0 33.333333%;flex: 0 0 33.333333%;max-width: 33.333333%;margin-left: 8.333333%;padding-top: 1rem!important;">
+                <h4 class="gray-ish" style="box-sizing: border-box;margin-top: 0;margin-bottom: .5rem;font-family: inherit;font-weight: 500;line-height: 1.2;color: #666;font-size: 1.5rem;">Invoice Summary & Notes</h4>
+                <p class="pt-3 almost-gray" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;orphans: 3;widows: 3;color: #999;padding-top: 1rem!important;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras purus sapien, ullamcorper quis orci eu, consectetur congue nulla. In a fermentum est, ornare maximus neque. Phasellus metus risus, mattis ac sapien in, volutpat laoreet lectus. Maecenas tincidunt condimentum quam, ut porttitor dui ultricies nec.</p>
+            </div>
+            <!-- Invoice assets and total -->
+            <div class="offset-1 col-5 mb-3 pr-4 sub-table" style="box-sizing: border-box;position: relative;width: 100%;min-height: 1px;padding-right: 1.5rem!important;padding-left: 0;-webkit-box-flex: 0;-ms-flex: 0 0 41.666667%;flex: 0 0 41.666667%;max-width: 41.666667%;margin-left: 8.333333%;border-left: 3px solid rgb(255, 77, 77);margin-bottom: 1rem!important;">
+                <table class="table table-borderless" style="box-sizing: border-box;border-collapse: collapse!important;page-break-inside: auto;width: 100%;max-width: 100%;margin-bottom: 0;background-color: transparent;padding-bottom: 0;">
+                    <tbody style="box-sizing: border-box;">
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row gray-ish" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Subtotal</th>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">75 <span class="currency " style="box-sizing: border-box;">&euro;</span></td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row gray-ish" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">VAT</th>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">11,25 <span class="currency" style="box-sizing: border-box;">&euro;</span></td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row gray-ish" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Taxes*</th>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">11,25 <span class="currency" style="box-sizing: border-box;">&euro;</span></td>
+                        </tr>
+                        <tr style="box-sizing: border-box;page-break-inside: avoid;">
+                            <th scope="row gray-ish" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: #fff!important;">Discounts</th>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: #fff!important;">7,5 <span class="currency" style="box-sizing: border-box;">&euro;</span></td>
+                        </tr>
+                        <tr class="last-row" style="box-sizing: border-box;page-break-inside: avoid;background-color: #555;margin-top: 25px;color: white;border-top: 3px solid rgb(255, 77, 77);">
+                            <th scope="row" style="box-sizing: border-box;text-align: inherit;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;background-color: unset !important;"><h4 style="box-sizing: border-box;margin-top: 0;margin-bottom: .5rem;font-family: inherit;font-weight: 500;line-height: 1.2;color: inherit;font-size: 1.5rem;">Total</h4></th>
+                            <td class="text-right" style="box-sizing: border-box;padding: .75rem;vertical-align: top;border-top: 1px solid #dee2e6;text-align: right!important;background-color: unset !important;"><h4 style="box-sizing: border-box;margin-top: 0;margin-bottom: .5rem;font-family: inherit;font-weight: 500;line-height: 1.2;color: inherit;font-size: 1.5rem;"><span class="currency" style="box-sizing: border-box;">&euro;</span> 90,25</h4></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <p class="text-center pb-3" style="box-sizing: border-box;margin-top: 0;margin-bottom: 1rem;orphans: 3;widows: 3;padding-bottom: 1rem!important;text-align: center!important;"><em style="box-sizing: border-box;"> Taxes will be calculated in &euro; regarding transport and other taxable services.</em></p>
+    </div>
+</body>
+</html>

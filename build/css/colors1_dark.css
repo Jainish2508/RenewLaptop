@@ -1,0 +1,204 @@
+/*------------------------------------------------------------------
+    File Name: colors1_dark.css
+-------------------------------------------------------------------*/
+
+/*------------------------------------------------------------------
+    color theme
+-------------------------------------------------------------------*/
+
+.header_top,
+#navbar_menu ul ul li a:hover,
+#navbar_menu ul ul li a:focus,
+.bg_load,
+.price_table_active .price_head,
+a.btn.dark_gray_bt:hover,
+a.btn.dark_gray_bt:focus,
+.carousel-indicators .active,
+.progress-bar {
+    background: #039ee3;
+    background-size: 100% 100%;
+    border: none;
+}
+
+#navbar_menu > ul > li a.active,
+#navbar_menu > ul > li:hover > a,
+#navbar_menu > ul > li:focus > a,
+footer p a:hover, footer p a:focus,
+.footer-menu li a:hover,
+.footer-menu li a:focus,
+.breadcrumb li a {
+    color: #039ee3;
+}
+
+.btn.sqaure_bt {
+    border-radius: 0;
+    background: #039ee3;
+}
+
+    .btn.sqaure_bt span {
+        font-size: 31px;
+        font-weight: 400;
+        position: absolute;
+        right: 16px;
+    }
+
+footer h2::after,
+.cprt, .contact_us_section {
+    background: #039ee3;
+}
+
+.tp-caption.tp-shape.tp-shapewrapper.tp-resizeme.rs-parallaxlevel-0 {
+    background: #039ee3 !important;
+}
+
+a.btn.main_bt,
+button.btn.main_bt {
+    background: #17a5e9;
+    border: none;
+}
+
+    a.btn.main_bt:hover,
+    a.btn.main_bt:focus,
+    button.btn.main_bt:hover,
+    button.btn.main_bt:focus {
+        background: #25d8ed;
+        background-size: 100% 100%;
+        color: #fff;
+    }
+
+a.btn.dark_gray_bt:hover,
+a.btn.dark_gray_bt:focus {
+    color: #fff;
+}
+
+.modal-backdrop {
+    background-color: rgba(3, 158, 227, .95);
+}
+
+#navbar_menu ul ul {
+    border-color: #039ee3;
+}
+
+.price_table_active a.btn:hover,
+.price_table_active a.btn:focus {
+    background: #252525;
+    color: #fff;
+}
+
+button.btn.white_btn, a.btn.white_btn, button.btn.white_btn, a.btn.white_btn {
+    color: #111;
+    text-transform: none;
+    text-shadow: none;
+}
+
+    button.btn.white_btn:hover,
+    a.btn.white_btn:hover,
+    button.btn.white_btn:hover,
+    a.btn.white_btn:hover {
+        color: #fff;
+        text-transform: none;
+        background: #111;
+    }
+
+.tp-bannertimer {
+    background: #039ee3 !important;
+}
+
+.tp-caption.tp-shape.tp-shapewrapper.rs-parallaxlevel-0 {
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+
+/** dark theme **/
+
+html, body {
+    color: #eee;
+    background: #111;
+}
+
+#navbar_menu > ul > li > a {
+    color: #fff;
+}
+
+h2 {
+    color: #fff;
+}
+
+h3 {
+    color: #fff;
+}
+
+h4 {
+    color: #fff;
+}
+
+p {
+    color: #999;
+}
+
+#accordion .panel.panel-default .panel-heading p a, #accordion .panel.panel-default .panel-heading p a[aria-expanded="false"] {
+    border: solid #222 1px;
+    background: #222;
+}
+
+    #accordion .panel.panel-default .panel-heading p a[aria-expanded="false"] {
+        color: #fff !important;
+    }
+
+        #accordion .panel.panel-default .panel-heading p a[aria-expanded="false"] i.fa-angle-down {
+            color: #fff !important;
+        }
+
+#accordion .panel.panel-default .panel-heading p a {
+    color: #fff;
+}
+
+    #accordion .panel.panel-default .panel-heading p a i.fa-angle-down {
+        color: #fff;
+    }
+
+.light_silver {
+    background: #1c1c1c;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+    color: #fff;
+}
+
+.counter-heading {
+    color: #fff;
+}
+
+.counter-count {
+    color: #999;
+}
+
+.brand_list li {
+    border: solid #222 5px;
+}
+
+.make_appo .btn.white_btn {
+    background: #111;
+    color: #fff;
+}
+
+    .make_appo .btn.white_btn:hover, .make_appo .btn.white_btn:focus {
+        color: #fff;
+        background: #4bb9ea;
+    }
+
+#navbar_menu.small-screen #menu-button {
+    border-color: #fff;
+}
+
+    #navbar_menu.small-screen #menu-button::before {
+        background: #fff;
+    }
+
+    #navbar_menu.small-screen #menu-button::after {
+        border-color: #fff;
+    }
+
+    #navbar_menu.small-screen #menu-button.menu-opened::before,
+    #navbar_menu.small-screen #menu-button.menu-opened::after {
+        background: #fff;
+    }

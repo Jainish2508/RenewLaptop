@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5c3f0b56b9534704839841a510478558" Name="Diagram1">
+        <EntityTypeShape EntityType="RenewLaptopModel.Contact" Width="1.5" PointX="5.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RenewLaptopModel.Customer" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="RenewLaptopModel.IP2LOCATION" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RenewLaptopModel.OrderDetail" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="RenewLaptopModel.Order" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="RenewLaptopModel.Payment" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RenewLaptopModel.Product" Width="1.5" PointX="3" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="RenewLaptopModel.error_log" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="RenewLaptopModel.FK_Order_Master_Client_Master" ManuallyRouted="false" />
+        <AssociationConnector Association="RenewLaptopModel.FK_OrderDetails_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="RenewLaptopModel.FK_OrderDetails_Products" ManuallyRouted="false" />
+        <AssociationConnector Association="RenewLaptopModel.FK_Order_Master_Transaction_Master" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

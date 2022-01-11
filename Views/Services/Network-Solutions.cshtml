@@ -1,0 +1,104 @@
+﻿@{
+    ViewBag.Title = "Network Solutions";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- inner page banner -->
+<div id="inner_banner" class="section inner_banner_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="full">
+                    <div class="title-holder">
+                        <div class="title-holder-cell text-left">
+                            <h1 class="page-title">Network Solutions</h1>
+                            <ol class="breadcrumb">
+                                <li><a href="@Url.Action("index","home")">Home</a></li>
+                                <li><a href="@Url.Action("index","service")">Services</a></li>
+                                <li class="active">Network Solutions</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end inner page banner -->
+<!-- section -->
+<div class="section padding_layout_1 service_list">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-md-12 service_blog margin_bottom_50">
+                        <div class="full">
+                            <div class="service_img"> <img class="img-responsive" src="~/Content/images/it_service/post-03.jpg" alt="Network Solutions" /> </div>
+                            <div class="service_cont">
+                                <h3 class="service_head">Network Solutions</h3>
+                                <p>
+                                    The term network services are used to describe a wide range
+                                    of software and connectivity tools that are managed by a central group and
+                                    distributed to the networked computers.<br>
+                                    <br>
+                                    A networked computer environment occurs when multiple computers are
+                                    connected to each other or a central server. The computers are able to access
+                                    shared files and utilities from a central location.
+                                    <br />
+                                    <br />
+                                    There are several advantages to this type of environment, ranging from
+                                    increased quality control to performance and issue management.
+                                    <br />
+                                    <br />
+                                    We provide all the types of network solutions which includes Server
+                                    configuration, set up of Server and Client Computer, it is mostly used in the office
+                                    environment where a single server is connected with multiple systems called as
+                                    clients. These clients can share files with each-other without any external drive.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="full">
+                                <div class="main_heading text_align_left">
+                                    <h2>More Services</h2>
+                                    <p class="large"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 service_blog margin_bottom_50">
+                            <div class="full">
+                                <div class="service_img"> <img class="img-responsive" src="~/Content/images/it_service/post-01.jpg" alt="Data Recovery" /> </div>
+                                <div class="service_cont">
+                                    <h3 class="service_head">Data recovery</h3>
+                                    <p>
+                                        We understand the importance of the data you have in your hard-drive, the
+                                        question is, is it possible to recover lost data?
+                                    </p>
+                                    <div class="bt_cont"> <a class="btn sqaure_bt" href="@Url.Action("data-recovery","service")">View Service</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 service_blog margin_bottom_50">
+                            <div class="full">
+                                <div class="service_img"> <img class="img-responsive" src="~/Content/images/it_service/post-02.jpg" alt="Computer and Laptop Repair" /> </div>
+                                <div class="service_cont">
+                                    <h3 class="service_head">Computer and Laptop Repair</h3>
+                                    <p>
+                                        In today’s generation computer is the part of
+                                        our life without computer our life can’t sustain.
+                                    </p>
+                                    <div class="bt_cont"> <a class="btn sqaure_bt" href="@Url.Action("computer-repair","service")">View Service</a> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end section -->

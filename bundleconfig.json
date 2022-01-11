@@ -1,0 +1,56 @@
+[
+  {
+    "outputFileName": "Content/css/bundle.css",
+    "inputFiles": [
+      "Content/css/style.css",
+      "Content/css/animate.css",
+      "Content/css/bootstrap-grid.css",
+      "Content/css/bootstrap-grid.min.css",
+      "Content/css/bootstrap-reboot.css",
+      "Content/css/bootstrap-reboot.min.css",
+      "Content/css/bootstrap-select.css",
+      "Content/css/bootstrap.css",
+      "Content/css/bootstrap.min.css",
+      "Content/css/colors_landing_page.css",
+      "Content/css/colors1.css",
+      "Content/css/colors1_dark.css",
+      "Content/css/colors2.css",
+      "Content/css/colors3.css",
+      "Content/css/custom.css",
+      "Content/css/dark_layout.css",
+      "Content/css/font-awesome.css",
+      "Content/css/font-awesome.min.css",
+      "Content/css/hizoom.css",
+      "Content/css/owl.carousel.css",
+      "Content/css/owl.carousel.min.css",
+      "Content/css/owl.theme.default.css",
+      "Content/css/responsive.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/css/bundle.min.min.css",
+    "inputFiles": [
+      "Content/css/bundle.min.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/revolution/css/revolution.css",
+    "inputFiles": [
+      "Content/revolution/css/layers.css",
+      "Content/revolution/css/navigation.css",
+      "Content/revolution/css/settings.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/css/main.css",
+    "inputFiles": [
+      "Content/css/bootstrap.css",
+      "Content/css/style.css",
+      "Content/css/responsive.css",
+      "Content/css/colors1.css",
+      "Content/css/custom.css",
+      "Content/css/animate.css",
+      "Content/css/font-awesome.min.css"
+    ]
+  }
+]
